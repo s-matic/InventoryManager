@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\InventoryManager.DataAccess\InventoryManager.DataAccess.csproj" />
     <ProjectReference Include="..\InventoryManager.Logic\InventoryManager.Logic.csproj" />
   </ItemGroup>
 

@@ -21,5 +21,17 @@ namespace InventoryManager.DataAccess
             var getItemsTask = Task.Run(() => _items);
             return await getItemsTask;
         }
+
+        public async Task SaveItemAsync(Item item)
+        {
+            //Here we should do an upsert, but since we do not support update functionality go straight to insert
+            await InsertItemAsync(item);
+        }
+
+        private async Task InsertItemAsync(Item item)
+        {
+            var insertItemTask = Task.Run(() => _items.Add(item));
+            await insertItemTask;
+        }
     }
 }

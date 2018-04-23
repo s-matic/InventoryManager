@@ -9,5 +9,6 @@ namespace InventoryManager.Domain.Interfaces
     public interface IItemDataAccess
     {
         Task<ICollection<Item>> GetItemsAsync();
+        Task SaveItemAsync(Item item);
     }
 }

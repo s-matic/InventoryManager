@@ -19,9 +19,9 @@ namespace InventoryManager.Logic
             await _itemDataAccess.SaveItemAsync(item);
         }
 
-        public Task RemoveItemAsync(Guid itemId)
+        public async Task RemoveItemAsync(Item item)
         {
-            throw new NotImplementedException();
+            await _itemDataAccess.RemoveItemAsync(item);
         }
     }
 }

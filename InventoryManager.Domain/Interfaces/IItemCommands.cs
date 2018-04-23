@@ -9,6 +9,6 @@ namespace InventoryManager.Domain.Interfaces
     public interface IItemCommands
     {
         Task AddItemAsync(Item item);
-        Task RemoveItemAsync(Guid itemId);
+        Task RemoveItemAsync(Item item);
     }
 }

@@ -22,6 +22,12 @@ namespace InventoryManager.DataAccess
             return await getItemsTask;
         }
 
+        public async Task RemoveItemAsync(Item item)
+        {
+            var removeItemTask = Task.Run(() => _items.Remove(item));
+            await removeItemTask;
+        }
+
         public async Task SaveItemAsync(Item item)
         {
             //Here we should do an upsert, but since we do not support update functionality go straight to insert

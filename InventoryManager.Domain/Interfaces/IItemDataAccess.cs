@@ -10,5 +10,6 @@ namespace InventoryManager.Domain.Interfaces
     {
         Task<ICollection<Item>> GetItemsAsync();
         Task SaveItemAsync(Item item);
+        Task RemoveItemAsync(Item item);
     }
 }

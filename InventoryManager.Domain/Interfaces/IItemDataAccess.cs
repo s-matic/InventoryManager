@@ -1,10 +1,13 @@
-﻿  using System;
+﻿using InventoryManager.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace InventoryManager.Domain.Interfaces
 {
-    interface IItemDataAccess
+    public interface IItemDataAccess
     {
+        Task<ICollection<Item>> GetItemsAsync();
     }
 }

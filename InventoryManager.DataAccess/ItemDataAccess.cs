@@ -5,19 +5,21 @@ using System.Text;
 using InventoryManager.Domain.Models;
 using System.Threading.Tasks;
 
-namespace InventoryManager.Logic
+namespace InventoryManager.DataAccess
 {
-    public class ItemQueries : IItemQueries
+    public class ItemDataAccess : IItemDataAccess
     {
-        private IItemDataAccess _itemDataAccess;
+        private List<Item> _items;
 
-        public ItemQueries(IItemDataAccess itemDataAccess)
+        public ItemDataAccess(List<Item> items)
         {
-            _itemDataAccess = itemDataAccess;
+            _items = items;
         }
+
         public async Task<ICollection<Item>> GetItemsAsync()
         {
-            return await _itemDataAccess.GetItemsAsync();
+            var getItemsTask = Task.Run(() => _items);
+            return await getItemsTask;
         }
     }
 }

@@ -12,5 +12,6 @@ namespace InventoryManager.Domain.Interfaces
         Task SaveItemAsync(Item item);
         Task RemoveItemAsync(Item item);
         Task PopItemAsync();
+        Task AddItemRangeAsync(List<Item> items);
     }
 }

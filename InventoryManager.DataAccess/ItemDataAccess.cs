@@ -16,6 +16,12 @@ namespace InventoryManager.DataAccess
             _items = items;
         }
 
+        public async Task AddItemRangeAsync(List<Item> items)
+        {
+            var addItemRangeTask = Task.Run(() => _items.AddRange(items));
+            await addItemRangeTask;
+        }
+
         public async Task<ICollection<Item>> GetItemsAsync()
         {
             var getItemsTask = Task.Run(() => _items);
@@ -24,6 +30,9 @@ namespace InventoryManager.DataAccess
 
         public async Task PopItemAsync()
         {
+            if(_items.Count < 1)
+                return;
+            
             var popItemTask = Task.Run(() => _items.RemoveAt(_items.Count - 1));
             await popItemTask;
         }

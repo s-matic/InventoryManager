@@ -53,5 +53,38 @@ namespace InventoryManager.Tests.LogicTests
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public async Task Should_pop_items_from_store()
+        {
+            //Arrange
+            var items = new List<Item>(); //This breaks the definition of Unit test, refactor to use Moq library 
+            var itemDataAccess = new ItemDataAccess(items);
+            var itemCommands = new ItemCommands(itemDataAccess);
+
+            items.AddRange(new List<Item>()
+            {
+                new Item()
+                {
+                    Id = Guid.NewGuid()
+                },
+                new Item()
+                {
+                    Id = Guid.NewGuid()
+                },
+                new Item()
+                {
+                    Id = Guid.NewGuid()
+                }
+            });
+
+            //Act
+            await itemCommands.PopItemsAsync(2);
+            int expected = 2;
+            int actual = items.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

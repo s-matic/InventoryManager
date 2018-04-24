@@ -10,5 +10,6 @@ namespace InventoryManager.Domain.Interfaces
     {
         Task AddItemAsync(Item item);
         Task RemoveItemAsync(Item item);
+        Task PopItemsAsync(int amount);
     }
 }

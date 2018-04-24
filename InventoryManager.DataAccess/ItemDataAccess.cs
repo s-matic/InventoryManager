@@ -22,6 +22,12 @@ namespace InventoryManager.DataAccess
             return await getItemsTask;
         }
 
+        public async Task PopItemAsync()
+        {
+            var popItemTask = Task.Run(() => _items.RemoveAt(_items.Count - 1));
+            await popItemTask;
+        }
+
         public async Task RemoveItemAsync(Item item)
         {
             var removeItemTask = Task.Run(() => _items.Remove(item));
